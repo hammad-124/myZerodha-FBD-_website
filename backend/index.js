@@ -3,9 +3,15 @@ const {holdingsModel} = require('./models/holdingsModel');
 const {positionsModel} = require('./models/positionsModel');
 
 const express = require("express");
-const app = express();
+
 const PORT = process.env.PORT || 3002;
 const url = process.env.MONGO_URL;
+const bodyParser = require('body-parser');
+const cors=require('cors');
+const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
 
