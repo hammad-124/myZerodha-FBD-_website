@@ -1,6 +1,7 @@
 require('dotenv').config();
 const {holdingsModel} = require('./models/holdingsModel');
 const {positionsModel} = require('./models/positionsModel');
+const {orderModel} = require('./models/orderModel');
 
 const express = require("express");
 

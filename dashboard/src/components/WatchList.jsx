@@ -3,6 +3,8 @@ import React from "react";
 import {watchlist} from "../data/data";
 import {Tooltip,Grow} from "@mui/material";
 import { BarChartOutlined, KeyboardArrowDown, KeyboardArrowUp, MoreHoriz} from "@mui/icons-material";
+import GeneralContext from "./GeneralContext";
+import { useContext } from "react";
 
 
 const WatchList = () => {
@@ -61,12 +63,18 @@ return(
 
 };
 const WatchListActions = ({uid})=>{
+  const generalContext = useContext(GeneralContext);
+
+  const handleBuyClick = () =>{
+    console.log("buy triggeres");
+   generalContext.openBuyWindow(uid);
+  }
   return(
     <span className="actions">
       <span>
         <Tooltip
-         title = "buy (B)" arrow placement="top" TransitionComponent={Grow}>
-          <button className="buy">Buy</button>
+         title = "buy (B)" arrow placement="top" TransitionComponent={Grow} >
+          <button className="buy" onClick={handleBuyClick}>Buy</button>
         </Tooltip>
         <Tooltip
          title = "Sell (S)" arrow placement="top" TransitionComponent={Grow}>
